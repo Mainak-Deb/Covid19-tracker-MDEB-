@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <!-- <base href="https://raw.githubusercontent.com/RahulSahOfficial/dashboard/main/"> -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Document</title>
+  </head>
+  <body class="dark">
+    <div class="maindiv">
+      <div class="header">
+        <div class="text">
+          <h1>Covid-19 india Dashboard</h1>
+          <h3>Last update: <span id="lastupdate"></span> </h3>
+
+          <h3>Total clicks: <span id="count">0</span> </h3>
+
+        </div>
+        <div class="buttonbox">
+          <p>Dark Mode</p>
+          <label class="switch">
+            <input type="checkbox" id="darkmode" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="cardbox">
+        <div class="herocardbox">
+          <div class="eachherocard animate fb">
+            
+            <p class="count"  id="Confirmed"></p>
+            <p class="follower numc">Confirmed</p>
+            <p class="update up">
+              +<span id="dConfirmed"></span> Today
+            </p>
+          </div>
+          <div class="eachherocard animate tw">
+           
+            <p class="count" id="Active"></p>
+            <p class="follower numa">Active</p>
+            <p class="update up">
+            
+            </p>
+          </div>
+          <div class="eachherocard animate ig">
+            
+            <p class="count" id="Recovered"></p>
+            <p class="follower numr"  >Recovered</p>
+            <p class="update up">
+             +<span id="dRecovered"></span> Today
+            </p>
+          </div>
+          <div class="eachherocard animate yt">
+            
+            <p class="count" id="Deceased" ></p>
+            <p class="follower numd" >Deceased</p>
+            <p class="update down">
+              +<span  id="dDeceased"></span> Today
+            </p>
+          </div>
+        </div>
+        <section>
+            <!--for demo wrap-->
+            <h1 class="tabletext">STATE WISE COVID REPORT</h1>
+        <div style="overflow-x:auto;width: 80vw;">
+            <table  class="tabletext" id="maintable">
+            </table>
+            </div>
+        </div>
+          </section>
+          
+          
+          <!-- follow me template -->
+          <div class="made-with-love">
+            Made with
+            <i>♥</i> by
+            Mainak Deb</a>
+            and <a target="_blank" href="https://codepen.io/rahulsahofficial/pen/ZELJmOq?editors=0100">Codepen</a>
+          </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="design.js"></script>
+  </body>
+</html>
