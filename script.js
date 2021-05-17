@@ -17,8 +17,8 @@ fetch('https://api.covid19india.org/data.json')
   })
   .then((data) => {
     // Work with JSON data here
-    console.log(data)
-    console.log(data.statewise[0].state)
+    // console.log(data)
+    // console.log(data.statewise[0].state)
 
     conf=data.statewise[0].confirmed
     rec=data.statewise[0].recovered
@@ -73,7 +73,7 @@ fetch('https://api.covid19india.org/data.json')
         // console.log(data.statewise[i].state)
     }
     document.getElementById("maintable").innerHTML = tabletag;
-    console.log(data.cases_time_series[100])
+    // console.log(data.cases_time_series[100])
     for(i=0;i<data.cases_time_series.length;i++){
         oconf[data.cases_time_series[i].date.toString()]=parseInt(data.cases_time_series[i].dailyconfirmed);
         oactv[data.cases_time_series[i].date.toString()]=parseInt(data.cases_time_series[i].totalconfirmed-data.cases_time_series[i].totaldeceased-data.cases_time_series[i].totalrecovered);
@@ -172,7 +172,7 @@ $('.graph-total').graphiq({
 function selectstate() {
     
     var sst= document.getElementById("stateselectbox").value;
-    console.log(sst);
+    // console.log(sst);
     if(sst=="India"){
     document.getElementById("india").style.display = "block";
     document.getElementById("states").style.display = "none";
@@ -182,8 +182,8 @@ function selectstate() {
         fetch('https://api.covid19india.org/state_district_wise.json')
             .then(response => {return response.json()})
             .then((data) => {  
-                console.log(sst)              
-                console.log(data[sst].districtData)
+                // console.log(sst)              
+                // console.log(data[sst].districtData)
                 document.getElementById("statename").innerHTML = sst;
                 
                 conf=0
@@ -210,7 +210,7 @@ function selectstate() {
                     dconf=dconf+data[sst].districtData[district].delta.confirmed
                     drec=drec+data[sst].districtData[district].delta.recovered
                     ddead=ddead+data[sst].districtData[district].delta.deceased
-                    console.log(ddead) 
+                    // console.log(ddead) 
                     tabletag2=tabletag2+`<tr> `+
                     `<td class="tabstt" >` + district.toString() + `</td>`+
                     `<td class="tabcon">`  + data[sst].districtData[district].confirmed.toString() +  `</td>`+
