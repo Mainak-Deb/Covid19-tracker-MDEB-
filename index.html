@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
     <!-- <base href="https://raw.githubusercontent.com/RahulSahOfficial/dashboard/main/"> -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
     <title>Covid19 tracker</title>
   </head>
+
   <body class="dark">
     <div class="maindiv">
       <div class="header">
@@ -21,8 +18,10 @@
           <h3>Last update: <span id="lastupdate"></span> </h3>
 
           <h3>This page has <span id="count">X</span> views</h3>
-
+          <h3><a href="https://mainak-deb.github.io/Mainak_Deb_portfolio/contact.html" class="contactcreator"> 
+            click here to contact creator(Mainak Deb)</a></h3>
         </div>
+
         <div class="buttonbox">
           <p>Change Mode</p>
           <label class="switch">
@@ -31,98 +30,207 @@
           </label>
         </div>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h1  class="tabletext">Covid-19 Statistics</h1>
-          </div>
-        </div>
+      
+        <select class="custom-select" style="width:100%;" id="stateselectbox" onchange="selectstate()">
+          <option value="India">India</option>
+          <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chandigarh">Chandigarh</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Ladakh">Ladakh</option>
+          <option value="Lakshadweep">Lakshadweep</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Puducherry">Puducherry</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Sikkim">Sikkim</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Tripura">Tripura</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Uttarakhand">Uttarakhand</option>
+          <option value="West Bengal">West Bengal</option>
+        </select>
+      <div id="india" style="display: block;">
+        <div class="container">
           <div class="row">
-              <div class="col s-12 m-6">
-                  <p class="graphhead">Daily Confirmed cases</p>
-                  <div class="graph-songs"></div>
-              </div>
-              <div class="col s-12 m-6">
-                      <p  class="graphhead">Active cases</p>
-                  <div class="graph-coffees"></div>
-              </div>
-              <div class="col s-12 m-6">
-                <p  class="graphhead">Total cases till now</p>
-
-            <div class="graph-total"></div>
-        </div>
-          </div>
-            <div class="row">
-              <div class="col s-12 m-4">
-                      <p  class="graphhead">Daily Recovered cases</p>
-                  <div class="graph-cats"></div>
-          </div>
-              <div class="col s-12 m-8">
-                      <p class="graphhead"> Daily Deceased cases</p>
-                  <div class="graph-hours"></div>
-        </div>
-        </div>
-        </div>
-      
-      
-      <div class="cardbox">
-        <div class="herocardbox">
-          <div class="eachherocard animate fb">
-            
-            <p class="count"  id="Confirmed"></p>
-            <p class="follower numc">Confirmed</p>
-            <p class="update up">
-              +<span id="dConfirmed"></span> Today
-            </p>
-          </div>
-          <div class="eachherocard animate tw">
-           
-            <p class="count" id="Active"></p>
-            <p class="follower numa">Active</p>
-            <p class="update up">
-            
-            </p>
-          </div>
-          <div class="eachherocard animate ig">
-            
-            <p class="count" id="Recovered"></p>
-            <p class="follower numr"  >Recovered</p>
-            <p class="update up">
-             +<span id="dRecovered"></span> Today
-            </p>
-          </div>
-          <div class="eachherocard animate yt">
-            
-            <p class="count" id="Deceased" ></p>
-            <p class="follower numd" >Deceased</p>
-            <p class="update down">
-              +<span  id="dDeceased"></span> Today
-            </p>
-          </div>
-        </div>
-    </div>
-        <section>
-            <!--for demo wrap-->
-            <h1 class="tabletext">STATE WISE COVID REPORT</h1>
-        <div style="overflow-x:auto;position: relative;margin-left:4vw;">
-            <table  class="tabletext" id="maintable">
-            </table>
+            <div class="col">
+              <h1 class="tabletext">Covid-19 Statistics</h1>
             </div>
-        
-          </section>
-          
-          
-          <!-- follow me template -->
-          <div class="made-with-love">
-            Made with
-            <i>♥</i> by
-            Mainak Deb</a>
-            and <a target="_blank" href="https://codepen.io/rahulsahofficial/pen/ZELJmOq?editors=0100" style="color: inherit;">Codepen</a>
           </div>
+          <div class="row">
+            <div class="col s-12 m-6">
+              <p class="graphhead">Daily Confirmed cases</p>
+              <div class="graph-songs"></div>
+            </div>
+            <div class="col s-12 m-6">
+              <p class="graphhead">Active cases</p>
+              <div class="graph-coffees"></div>
+            </div>
+            <div class="col s-12 m-6">
+              <p class="graphhead">Total cases till now</p>
+
+              <div class="graph-total"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s-12 m-4">
+              <p class="graphhead">Daily Recovered cases</p>
+              <div class="graph-cats"></div>
+            </div>
+            <div class="col s-12 m-8">
+              <p class="graphhead"> Daily Deceased cases</p>
+              <div class="graph-hours"></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="cardbox">
+          <div class="herocardbox">
+            <div class="eachherocard animate fb">
+
+              <p class="count" id="Confirmed"></p>
+              <p class="follower numc">Confirmed</p>
+              <p class="update up">
+                +<span id="dConfirmed"></span> Today
+              </p>
+            </div>
+            <div class="eachherocard animate tw">
+
+              <p class="count" id="Active"></p>
+              <p class="follower numa">Active</p>
+              <p class="update up">
+
+              </p>
+            </div>
+            <div class="eachherocard animate ig">
+
+              <p class="count" id="Recovered"></p>
+              <p class="follower numr">Recovered</p>
+              <p class="update up">
+                +<span id="dRecovered"></span> Today
+              </p>
+            </div>
+            <div class="eachherocard animate yt">
+
+              <p class="count" id="Deceased"></p>
+              <p class="follower numd">Deceased</p>
+              <p class="update down">
+                +<span id="dDeceased"></span> Today
+              </p>
+            </div>
+          </div>
+        </div>
+        <section>
+          <!--for demo wrap-->
+          <h1 class="tabletext">STATE WISE COVID REPORT</h1>
+          <div style="overflow-x:auto;position: relative;margin-left:4vw;">
+            <table class="tabletext" id="maintable">
+            </table>
+          </div>
+
+        </section>
+      </div>
+      <div id="states" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h1 class="tabletext">Covid-19 REPORT <span id="statename"></span></h1>
+            </div>
+          </div>
+        </div>
+        <div class="cardbox">
+          <div class="herocardbox">
+            <div class="eachherocard animate fb">
+
+              <p class="count" id="sConfirmed"></p>
+              <p class="follower numc">Confirmed</p>
+              <p class="update up">
+                +<span id="sdConfirmed"></span> Today
+              </p>
+            </div>
+            <div class="eachherocard animate tw">
+
+              <p class="count" id="sActive"></p>
+              <p class="follower numa">Active</p>
+              <p class="update up">
+
+              </p>
+            </div>
+            <div class="eachherocard animate ig">
+
+              <p class="count" id="sRecovered"></p>
+              <p class="follower numr">Recovered</p>
+              <p class="update up">
+                +<span id="sdRecovered"></span> Today
+              </p>
+            </div>
+            <div class="eachherocard animate yt">
+
+              <p class="count" id="sDeceased"></p>
+              <p class="follower numd">Deceased</p>
+              <p class="update down">
+                +<span id="sdDeceased"></span> Today
+              </p>
+            </div>
+          </div>
+        </div>
+        <section>
+          <!--for demo wrap-->
+          <h1 class="tabletext">DISTRICT WISE COVID REPORT</h1>
+          <h4 class="warning">Warning: Some district data is not properly available in database</h4>
+          <div style="overflow-x:auto;position: relative;margin-left:4vw;">
+            <table class="tabletext" id="smaintable">
+            </table>
+          </div>
+
+        </section>
+      </div>
+      <!-- follow me template -->
+      <div class="made-with-love">
+        Made with
+        <i>♥</i> by
+        Mainak Deb</a>
+        and <a target="_blank" href="https://codepen.io/rahulsahofficial/pen/ZELJmOq?editors=0100"
+          style="color: inherit;">Codepen</a>
+      </div>
+      <div class="made-with-love">
+        Special thanks: <a target="_blank" href="https://api.covid19india.org/data.json"
+          style="color: inherit;">url0,</a>
+          <a target="_blank" href="https://codepen.io/kylewetton/pen/rQLoVe?editors=0010"
+          style="color: inherit;">url1,</a>
+          <a target="_blank" href="https://api.covid19india.org/state_district_wise.json"
+          style="color: inherit;">url2,</a>
+          <a target="_blank" href="https://codepen.io/rahulsahofficial/pen/ZELJmOq?editors=0100"
+          style="color: inherit;">url3,</a>
+
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <script src="design.js"></script>
   </body>
+
 </html>

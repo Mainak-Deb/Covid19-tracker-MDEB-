@@ -167,7 +167,87 @@ $('.graph-total').graphiq({
      
 
   })
-  
+ 
+
+function selectstate() {
+    
+    var sst= document.getElementById("stateselectbox").value;
+    console.log(sst);
+    if(sst=="India"){
+    document.getElementById("india").style.display = "block";
+    document.getElementById("states").style.display = "none";
+    }else{
+                
+        var state,district,selecttag;
+        fetch('https://api.covid19india.org/state_district_wise.json')
+            .then(response => {return response.json()})
+            .then((data) => {  
+                console.log(sst)              
+                console.log(data[sst].districtData)
+                document.getElementById("statename").innerHTML = sst;
+                
+                conf=0
+                actv=0
+                rec=0
+                dead=0
+                dconf=0
+                drec=0
+                ddead=0
+                            
+                var tabletag2 =`<tr class="tbl-header">
+                <th>District</th>
+                <th>Confirmed</th>
+                <th>Active</th>
+                <th>Recovered</th>
+                <th>Deceased</th>
+                </tr>
+                `   
+                for(district in data[sst].districtData){
+                    conf=conf+data[sst].districtData[district].confirmed
+                    actv=actv+data[sst].districtData[district].active
+                    dead=dead+data[sst].districtData[district].deceased
+
+                    dconf=dconf+data[sst].districtData[district].delta.confirmed
+                    drec=drec+data[sst].districtData[district].delta.recovered
+                    ddead=ddead+data[sst].districtData[district].delta.deceased
+                    console.log(ddead) 
+                    tabletag2=tabletag2+`<tr> `+
+                    `<td class="tabstt" >` + district.toString() + `</td>`+
+                    `<td class="tabcon">`  + data[sst].districtData[district].confirmed.toString() +  `</td>`+
+                    `<td class="tabact" >` + data[sst].districtData[district].active.toString() +  `</td>`+
+                    `<td class="tabrec" >` + data[sst].districtData[district].recovered.toString() + `</td>`+
+                    `<td class="tabdead" >` + data[sst].districtData[district].deceased.toString() + `</td>`+
+                    `</tr>  `
+                }
+                document.getElementById("smaintable").innerHTML = tabletag2;
+
+
+
+
+                // State dashboard value fetch
+              
+                document.getElementById("sConfirmed").innerHTML = conf;
+                document.getElementById("sdConfirmed").innerHTML = dconf;
+                
+                document.getElementById("sActive").innerHTML = actv;
+                
+                document.getElementById("sRecovered").innerHTML = conf-dead-actv;
+                document.getElementById("sdRecovered").innerHTML = drec;
+                
+                document.getElementById("sDeceased").innerHTML = dead;
+                document.getElementById("sdDeceased").innerHTML = ddead; 
+            
+
+
+
+
+                document.getElementById("india").style.display = "none";
+                document.getElementById("states").style.display = "block";
+
+        })
+
+    }
+}
 function updateCounter(){
     fetch('https://api.countapi.xyz/update/mainakdeb/debcode/?amount=1')
     .then(response => {return response.json()})
@@ -445,7 +525,14 @@ updateCounter();
 
 }(jQuery));
 
-// Initiate graphs
+
+
+
+
+
+
+
+
 
 
 //  songs["sun"]=100;
