@@ -69,7 +69,7 @@ fetch('https://api.covid19india.org/data.json')
   })
   
 function updateCounter(){
-    fetch('https://api.countapi.xyz/update/iconicsudip.github.io/github/?amount=1')
+    fetch('https://api.countapi.xyz/update/mainakdeb/debcode/?amount=1')
     .then(response => {return response.json()})
     .then((data) => {
         document.getElementById('count').innerHTML = data.value;
@@ -77,4 +77,5 @@ function updateCounter(){
     )
 }
 updateCounter();
+// {"namespace":"mainakdeb","key":"debcode"}
   
