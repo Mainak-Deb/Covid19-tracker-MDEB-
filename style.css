@@ -434,21 +434,21 @@ input:checked + .slider:before {
     margin-top: 0px;
   }
   th{
-    padding: 12px 10px;
+    padding: min(1vw,9px);
     border-radius: 20px;
     text-align: center;
     font-weight: 600;
-    font-size: 16px;
+    font-size: min(3vw,16px);
     text-transform: uppercase;
   }
   td{
-    padding: 12px;
+    padding: min(1vw,12px);
     border-radius: 20px;
 
     text-align: center;
     vertical-align:middle;
     font-weight: 500;
-    font-size: 14px;
+    font-size: min(3vw,14px);
     border-bottom: solid 1px rgba(255,255,255,0.1);
   }
 
@@ -520,15 +520,26 @@ section{
  
   
   /* follow me template */
-  .made-with-love {
+  .dark .made-with-love {
     margin-top: 40px;
     padding: 10px;
     clear: left;
     text-align: center;
-    font-size: 10px;
+    font-size: 16px;
     font-family: arial;
     color: #fff;
   }
+  .light .made-with-love {
+    margin-top: 40px;
+    padding: 10px;
+    clear: left;
+    text-align: center;
+    font-size: 16px;
+    font-family: arial;
+    color: rgb(177, 65, 0);
+  }
+
+
   .made-with-love i {
     font-style: normal;
     color: #F50057;

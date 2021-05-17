@@ -1,6 +1,6 @@
 
 var i,actv,rec,dead,conf,dactv,drec,ddead,dconf;
-var oactv={},oconf={},odead={},orecv={}
+var oactv={},oconf={},odead={},orecv={},ototal={};
 
 var songs = {
     "Mon 67 yujk=> 89" : 100280,
@@ -77,6 +77,7 @@ fetch('https://api.covid19india.org/data.json')
     for(i=0;i<data.cases_time_series.length;i++){
         oconf[data.cases_time_series[i].date.toString()]=parseInt(data.cases_time_series[i].dailyconfirmed);
         oactv[data.cases_time_series[i].date.toString()]=parseInt(data.cases_time_series[i].totalconfirmed-data.cases_time_series[i].totaldeceased-data.cases_time_series[i].totalrecovered);
+        ototal[data.cases_time_series[i].date.toString()]=parseInt(data.cases_time_series[i].totalconfirmed);
         orecv[data.cases_time_series[i].date.toString()]=parseInt(data.cases_time_series[i].dailyrecovered);
         odead[data.cases_time_series[i].date.toString()]=parseInt(data.cases_time_series[i].dailydeceased);
 
@@ -113,6 +114,24 @@ $('.graph-coffees').graphiq({
     colorXGrid: "#634e1b",
     colorUnits: "#d3d1b1",
     colorFill: "#2eeff2",
+    dotStrokeWeight: 3,
+  
+  });
+      
+$('.graph-total').graphiq({
+    data: ototal,
+    fluidParent: ".col",
+    height: 200,
+    xLineCount: 6,
+    dotRadius: 0,
+    yLines: false,
+    xLines: true,
+    dots: false,
+    colorLine: "#f4fc03",
+    colorDot: "#726d60",
+    colorXGrid: "#634e1b",
+    colorUnits: "#d3d1b1",
+    colorFill: "#fca103",
     dotStrokeWeight: 3,
   
   });
